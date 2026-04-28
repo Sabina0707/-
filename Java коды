@@ -1,0 +1,37 @@
+import java.util.*;
+
+// Student класы
+class Student {
+    String name;
+    double gpa;
+
+    public Student(String name, double gpa) {
+        this.name = name;
+        this.gpa = gpa;
+    }
+
+    public String toString() {
+        return name + " - GPA: " + gpa;
+    }
+}
+
+public class RankingSystem {
+
+    public static void main(String[] args) {
+
+        List<Student> students = new ArrayList<>();
+
+        students.add(new Student("Ali", 3.5));
+        students.add(new Student("Aruzhan", 3.9));
+        students.add(new Student("Dias", 2.8));
+        students.add(new Student("Nursultan", 3.7));
+
+        // Comparator арқылы GPA бойынша сұрыптау (кему ретімен)
+        students.sort((s1, s2) -> Double.compare(s2.gpa, s1.gpa));
+
+        System.out.println("Сұрыпталған студенттер:");
+        for (Student s : students) {
+            System.out.println(s);
+        }
+    }
+}
